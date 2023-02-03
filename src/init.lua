@@ -714,7 +714,9 @@ if game:IsLoaded() then
                         
                         for i = 1, #strings do
                             local arg = clone(storage.TableBody)
-                            -- update this to the datatype to string handler
+                            if strings[i]:match("};,") then
+                                strings[i] = strings[i]:gsub(",","")
+                            end
                             arg.TextLabel.Text = strings[i]
                             arg.TextLabel.TextColor3 = Color3.fromRGB(255,255,255)
                             arg.Parent = tblMain
@@ -1470,8 +1472,6 @@ syn.on_actor_created:Connect(function(actor)
         end
     
         if remoteInfo then
-            -- check if remote is ignored or blocked
-            -- if blocked, may wanna move remoteId as an argument and check it within the metamethod
             local argInteraction = clone(storage.ArgumentInteract)
             argInteraction.Header.TextLabel.Text = _script and tostring(_script) or "nil"
             local parent = argInteraction.Frame
@@ -1493,7 +1493,9 @@ syn.on_actor_created:Connect(function(actor)
                     
                     for i = 1, #strings do
                         local arg = clone(storage.TableBody)
-                        -- update this to the datatype to string handler
+                        if strings[i]:match("};,") then
+                            strings[i] = strings[i]:gsub(",","")
+                        end
                         arg.TextLabel.Text = strings[i]
                         arg.TextLabel.TextColor3 = Color3.fromRGB(255,255,255)
                         arg.Parent = tblMain
@@ -1504,7 +1506,6 @@ syn.on_actor_created:Connect(function(actor)
                 else
                     local arg = clone(storage.Argument)
                     local text, color = transformDataTypeToString(value), getColorForType(_type)
-                    -- update this to the datatype to string handler
                     arg.TextLabel.Text = text
                     arg.TextLabel.TextColor3 = color
                     arg.Frame.TextLabel.Text = #parent:GetChildren()
@@ -2347,6 +2348,9 @@ local function logRemote(remote, _script, ...)
                 
                 for i = 1, #strings do
                     local arg = clone(storage.TableBody)
+                    if strings[i]:match("};,") then
+                        strings[i] = strings[i]:gsub(",","")
+                    end
                     arg.TextLabel.Text = strings[i]
                     arg.TextLabel.TextColor3 = Color3.fromRGB(255,255,255)
                     arg.Parent = tblMain
