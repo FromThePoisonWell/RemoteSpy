@@ -1,7 +1,7 @@
 # Remote Spy
 
 A remote spy designed to be simple and easy to use.  
-v2 will include more features and optimizations down the line,  
+v2 will include more features and optimizations down the line  
 and include a major refactor of this messy code.
 
 ## Features
