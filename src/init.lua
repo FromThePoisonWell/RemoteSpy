@@ -263,16 +263,6 @@ if game:IsLoaded() then
         end
         
         local fromRGB = Color3.fromRGB
-        local DataTypeColors = {
-            ["Number"] = fromRGB(255, 255, 127);
-            ["String"] = fromRGB(255, 170, 127);
-            ["Color3"] = fromRGB(0, 255, 127);
-            ["Instance"] = fromRGB(255, 255, 255);
-            ["Enum"] = fromRGB(0, 170, 255);
-            ["Position"] = fromRGB(170, 255, 255);
-            ["Table"] = fromRGB(180, 180, 180);
-            ["UnknownDataType"] = fromRGB(180, 180, 180);
-        }
         
         local DataTypes = {
             ["BrickColor"] = {
@@ -281,6 +271,12 @@ if game:IsLoaded() then
                     return transformed
                 end,
                 Color = fromRGB(0, 255, 127)
+            };
+            ["boolean"] = {
+                Transform = function(value)
+                    return tostring(value)
+                end,
+                Color = fromRGB(255, 128, 0)
             };
             ["CFrame"] = {
                 Transform = function(value)
@@ -1044,17 +1040,7 @@ syn.on_actor_created:Connect(function(actor)
     end
     
     local fromRGB = Color3.fromRGB
-    local DataTypeColors = {
-        ["Number"] = fromRGB(255, 255, 127);
-        ["String"] = fromRGB(255, 170, 127);
-        ["Color3"] = fromRGB(0, 255, 127);
-        ["Instance"] = fromRGB(255, 255, 255);
-        ["Enum"] = fromRGB(0, 170, 255);
-        ["Position"] = fromRGB(170, 255, 255);
-        ["Table"] = fromRGB(180, 180, 180);
-        ["UnknownDataType"] = fromRGB(180, 180, 180);
-    }
-    
+
     local DataTypes = {
         ["BrickColor"] = {
             Transform = function(value)
@@ -1062,6 +1048,12 @@ syn.on_actor_created:Connect(function(actor)
                 return transformed
             end,
             Color = fromRGB(0, 255, 127)
+        };
+        ["boolean"] = {
+            Transform = function(value)
+                return tostring(value)
+            end,
+            Color = fromRGB(255, 128, 0)
         };
         ["CFrame"] = {
             Transform = function(value)
@@ -1901,16 +1893,6 @@ local function GetMinMaxFromRegion3Properties(region)
 end
 
 local fromRGB = Color3.fromRGB
-local DataTypeColors = {
-    ["Number"] = fromRGB(255, 255, 127);
-    ["String"] = fromRGB(255, 170, 127);
-    ["Color3"] = fromRGB(0, 255, 127);
-    ["Instance"] = fromRGB(255, 255, 255);
-    ["Enum"] = fromRGB(0, 170, 255);
-    ["Position"] = fromRGB(170, 255, 255);
-    ["Table"] = fromRGB(180, 180, 180);
-    ["UnknownDataType"] = fromRGB(180, 180, 180);
-}
 
 local DataTypes = {
     ["BrickColor"] = {
@@ -1919,6 +1901,12 @@ local DataTypes = {
             return transformed
         end,
         Color = fromRGB(0, 255, 127)
+    };
+    ["boolean"] = {
+        Transform = function(value)
+            return tostring(value)
+        end,
+        Color = fromRGB(255, 128, 0)
     };
     ["CFrame"] = {
         Transform = function(value)

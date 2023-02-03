@@ -1,10 +1,12 @@
 # Remote Spy
 
-A remote spy designed to be simple and easy to use.
+A remote spy designed to be simple and easy to use.  
+v2 will include more features and optimizations down the line,  
+and include a major refactor of this messy code.
 
 ## Features
-* Generate functional scripts
-* Parallel lua support
+* Generate Pseudocode scripts
+* Parallel lua support (lol)
 * Lightweight
 * Intuitive UI
 
