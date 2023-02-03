@@ -531,7 +531,6 @@ if game:IsLoaded() then
         local CoreGui = game:GetService("CoreGui")
         local id = ...
         local gui = CoreGui:FindFirstChild(id)
-        warn("got gui")
         local uiFrame = gui.Frame
         local storage = gui.Storage
         local remotesList = uiFrame.Body.Remotes
@@ -1311,7 +1310,6 @@ syn.on_actor_created:Connect(function(actor)
     local CoreGui = game:GetService("CoreGui")
     local id = ...
     local gui = CoreGui:FindFirstChild(id)
-    warn("got gui")
     local uiFrame = gui.Frame
     local storage = gui.Storage
     local remotesList = uiFrame.Body.Remotes
